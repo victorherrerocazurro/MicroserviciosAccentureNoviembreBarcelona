@@ -34,6 +34,9 @@ public class ControladorCliente {
 		System.out.println("En el controlador: personaje = " 
 										+ personaje + ", id = " + id);
 		
+		//Sustituimos una invocacion sobre un bean
+		//servicio.metododeNegocio();
+		//Por la invocacion una peticion HTTP
 		//Realizar peticion HTTP
 		ResponseEntity<Personaje> postForEntity = restTemplate.postForEntity(
 				"http://localhost:8080/metodo/{id}", 

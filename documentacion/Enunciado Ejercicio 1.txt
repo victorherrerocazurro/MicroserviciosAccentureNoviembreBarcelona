@@ -1,0 +1,14 @@
+Orden de compra:
+
+	- Un MS que "Orqueste" (el requisito) las tareas que engloban el concepto de la orden de compra, 
+	que son
+		- Validar el Stock.
+		- Realizar el cobro.
+		- Encargar la entrega de producto a una empresa de transporte.
+		- Actualizar el Stock.
+		- Notificar al usuario el estado de su compra, 
+		lo posibilidad de que se vayan registrando otras formas de notificacion.
+
+	- Se compran n productos de distinta tipologia.
+	- Se necesitara describir como se abona la compra: TC, TB, PP, ...
+	- Siempre la misma empresa de transporte.
