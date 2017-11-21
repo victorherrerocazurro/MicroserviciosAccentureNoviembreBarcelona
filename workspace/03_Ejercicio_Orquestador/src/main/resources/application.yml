@@ -1,0 +1,13 @@
+servicio:
+  gestion_stock:
+    url: localhost
+    port: 8280
+  cobro:
+    url: localhost
+    port: 8480
+  transporte:
+    url: localhost
+    port: 8680
+  notificaciones:
+    url: localhost
+    port: 8880
