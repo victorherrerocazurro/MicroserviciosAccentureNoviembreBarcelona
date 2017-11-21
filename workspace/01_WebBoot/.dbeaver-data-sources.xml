@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="derby_server-15fde940e20-26b030175efecfa4" provider="generic" driver="derby_server" name="Derby - Spring" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="localhost" port="1527" server="" database="Spring" url="jdbc:derby://localhost:1527/Spring;create=false" user="app" password="EhQWQKA=" type="dev">
+			<network-handler type="PROXY" id="socks_proxy" enabled="false" save-password="false">
+				<property name="socks-port" value="1080"/>
+			</network-handler>
+			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" save-password="false">
+				<property name="sshConnectTimeout" value="10000"/>
+				<property name="port" value="22"/>
+				<property name="authType" value="PASSWORD"/>
+			</network-handler>
+		</connection>
+	</data-source>
+	<filters/>
+</data-sources>
