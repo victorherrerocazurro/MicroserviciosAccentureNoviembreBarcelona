@@ -1,6 +1,10 @@
 server:
   port: 8090
 
+spring:
+  application:
+    name: cliente
+
 eureka:
   client:
     serviceUrl:

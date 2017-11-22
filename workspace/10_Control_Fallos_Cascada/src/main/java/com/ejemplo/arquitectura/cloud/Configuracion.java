@@ -4,15 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import feign.auth.BasicAuthRequestInterceptor;
 
 @Configuration
 public class Configuracion {
-	//http://user:password@localhost:8080/
 	@Bean
     public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
          return new BasicAuthRequestInterceptor("user", "passwordholamundo");
@@ -28,14 +30,31 @@ interface HolaMundoCliente {
 
 @RestController
 class HolaMundoClienteController {
+	
+	@Autowired
+	Negocio negocio;
+	
+	@RequestMapping("/")
+	public String home() {
+		return negocio.home();
 
+	}
+}
+
+@Component
+class Negocio{
 	@Autowired
     private HolaMundoCliente holaMundoCliente;
 	
-	@RequestMapping("/")
+	@HystrixCommand(fallbackMethod="fallbackHome")
 	public String home() {
 		return holaMundoCliente.holaMundo() + " con Feign";
 
 	}
+	
+	public String fallbackHome(Throwable t) {
+		t.printStackTrace();
+        return "Hubo un problema con un servicio: " + t.getMessage();
+    }
 }
 
