@@ -44,7 +44,7 @@ public class ConfiguracionOauth {
         resource.setClientSecret(clientSecret);
         resource.setAccessTokenUri(accessTokenUri);
         resource.setUserAuthorizationUri(userAuthorizationUri);
-        resource.setScope(Arrays.asList("read"));
+        resource.setScope(Arrays.asList("read","write"));
 
         return resource;
     }

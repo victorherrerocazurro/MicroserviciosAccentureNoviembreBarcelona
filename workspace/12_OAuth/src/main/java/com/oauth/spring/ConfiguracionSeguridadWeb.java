@@ -27,7 +27,7 @@ public class ConfiguracionSeguridadWeb extends WebSecurityConfigurerAdapter {
 
 				.and()
 
-				.withUser("admin").password("password").roles("USER", "ADMIN");
+				.withUser("admin").password("password").roles("USER", "TRUSTED_CLIENT");
 	}
 
 	@Override
@@ -35,9 +35,10 @@ public class ConfiguracionSeguridadWeb extends WebSecurityConfigurerAdapter {
 		http.formLogin()
 
 				.and()
-
+				
 				.httpBasic().disable()
 				.anonymous().disable()
+				.csrf().disable()
 				.authorizeRequests().anyRequest().authenticated();
 	}
 }
