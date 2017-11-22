@@ -49,7 +49,6 @@ class Negocio{
 	@HystrixCommand(fallbackMethod="fallbackHome")
 	public String home() {
 		return holaMundoCliente.holaMundo() + " con Feign";
-
 	}
 	
 	public String fallbackHome(Throwable t) {
